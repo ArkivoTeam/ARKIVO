@@ -4,4 +4,4 @@ Arkivo ontology is designed to accomodate archival description, including collec
 digitized and born-digital items. It includes historical events, people, places, organizations 
 and other entities in archival items, as well as relationships between them.
 
-Arkivo ontology is intended for presentation of archival objects and relationships in Linked Open data environment.
+Arkivo ontology is intended for presentation of archival objects and relationships in Linked Open data environment..
