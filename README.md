@@ -15,4 +15,6 @@
 
 **arkivo** ontology has been integrated with several core ontologies and vocabularies, such as [Dublin Core metadata elements (DCMI)](http://dublincore.org/documents/dcmi-terms/), [Friend Of A Friend Vocaboluary (FOAF)](http://xmlns.com/foaf/spec/), [schema.org](http://schema.org), [the Bibliographic Ontology (BIBO)](http://bibliontology.com), [GeoNames Ontology](http://www.geonames.org/ontology/documentation.html) and [LODE](http://linkedevents.org/ontology/). 
 
-## Listing ARKIVO Classes and Properties
+## ARKIVO Classes and Properties
+
+See [Specification.pdf](https://github.com/ArkivoTeam/ARKIVO/blob/master/Specification.pdf) file.
