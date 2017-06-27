@@ -3,7 +3,7 @@
 ## Overview
 
 * **This Version:** [http://purl.org/arkivo](http://purl.org/arkivo)
-* **Authors:** Laura Pandolfo, Luca Pulina and Marek Zielinski
+* **Authors:** [Laura Pandolfo](mailto:lpandolfo@uniss.it), Luca Pulina and Marek Zielinski
 * **Contributors:** Pilsudski Institute of America and University of Sassari.
 * **Issued:** 2017-05-15
 * **Document Status:** 0.2
