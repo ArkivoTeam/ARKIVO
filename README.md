@@ -17,4 +17,4 @@
 
 ## ARKIVO Classes and Properties
 
-See [Specification.pdf](https://github.com/ArkivoTeam/ARKIVO/blob/master/Specification.pdf) file.
+See [documentation.pdf](https://github.com/ArkivoTeam/ARKIVO/blob/master/documentation.pdf) file.
