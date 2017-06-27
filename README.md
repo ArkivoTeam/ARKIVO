@@ -1,4 +1,4 @@
-# ARKIVO
+# ARKIVO Ontology
 
 * **This Version:** [http://purl.org/arkivo](http://purl.org/arkivo)
 * **Authors:** Laura Pandolfo, Luca Pulina and Marek Zielinski
