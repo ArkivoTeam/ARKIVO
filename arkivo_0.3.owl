@@ -1,0 +1,1418 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY schema "http://schema.org/" >
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY dbo "http://dbpedia.org/ontology/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY arkivo "http://purl.org/arkivo/ontology" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY ontology "http://www.arkivo-ontology.org/ontology#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="&arkivo;#"
+     xml:base="http://purl.org/arkivo/ontology"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:ontology="http://www.arkivo-ontology.org/ontology#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/"
+     xmlns:arkivo="http://purl.org/arkivo/ontology"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dbo="http://dbpedia.org/ontology/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://purl.org/arkivo/ontology">
+        <rdfs:label xml:lang="en">ARKIVO ontology</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI"> https://github.com/ArkivoTeam/ARKIVO </rdfs:seeAlso>
+        <owl:versionInfo rdf:datatype="&xsd;double">0.2</owl:versionInfo>
+        <dcterms:issued rdf:datatype="&xsd;dateTime">2017-05-15</dcterms:issued>
+        <rdfs:comment rdf:datatype="&xsd;string">ARKIVO ontology by Laura Pandolfo, Luca Pulina and Marel Zielinski is licensed under CC BY 4.0 (http://creativecommons.org/licenses/by/3.0/).</rdfs:comment>
+        <dcterms:description rdf:datatype="&xsd;string">ARKIVO ontology is an ontology designed to accomodate the archival description, with inclusion of historical events.</dcterms:description>
+        <dc:contributor rdf:datatype="&xsd;string">Laura Pandolfo, Luca Pulina, Marek Zielinski.</dc:contributor>
+        <dcterms:license rdf:datatype="&xsd;anyURI">http://creativecommons.org/licenses/by/3.0/</dcterms:license>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="&dcterms;description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="&dcterms;issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="&dcterms;license"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#equivalentProperty -->
+
+    <owl:AnnotationProperty rdf:about="&owl;equivalentProperty"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#sameAs -->
+
+    <owl:AnnotationProperty rdf:about="&owl;sameAs"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#versionIRI -->
+
+    <owl:AnnotationProperty rdf:about="&owl;versionIRI"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <rdfs:Datatype rdf:about="&xsd;gYear"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#bornIn -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#bornIn">
+        <rdfs:comment xml:lang="en">A person was born in this place</rdfs:comment>
+        <rdfs:domain rdf:resource="&schema;Place"/>
+        <owl:inverseOf rdf:resource="&schema;birthPlace"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#cites -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#cites">
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <owl:inverseOf rdf:resource="&arkivo;#isCitedBy"/>
+        <rdfs:range rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#createdDuring -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#createdDuring">
+        <rdfs:range rdf:resource="&arkivo;#HistoricalPeriod"/>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#diedIn -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#diedIn">
+        <rdfs:comment xml:lang="en">A person died in this place</rdfs:comment>
+        <rdfs:domain rdf:resource="&schema;Place"/>
+        <owl:inverseOf rdf:resource="&schema;deathPlace"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#happenedDuring -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#happenedDuring">
+        <rdfs:domain rdf:resource="http://linkedevents.org/ontology/Event"/>
+        <rdfs:range rdf:resource="&arkivo;#HistoricalPeriod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#involves -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#involves">
+        <rdfs:domain rdf:resource="http://linkedevents.org/ontology/Event"/>
+        <owl:inverseOf rdf:resource="&arkivo;#isInvolvedIn"/>
+        <rdfs:range rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#isAbout -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#isAbout">
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <owl:inverseOf rdf:resource="&arkivo;#isSubjectOf"/>
+        <rdfs:range rdf:resource="&dc;Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#isCitedBy -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#isCitedBy"/>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#isInvolvedIn -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#isInvolvedIn"/>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#isMentionedIn -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#isMentionedIn">
+        <rdfs:label>is mentioned in</rdfs:label>
+        <rdfs:comment>Object is mentioned in an item, collection, etc., without specifying the role. Use specific role-based properties (like dcterms:creator, birthDate, takesPlaceIn etc., if known)</rdfs:comment>
+        <rdfs:range rdf:resource="&arkivo;#CreativeThing"/>
+        <rdfs:domain rdf:resource="&arkivo;#NamedThing"/>
+        <owl:inverseOf rdf:resource="&schema;mentions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#isReportedIn -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#isReportedIn">
+        <owl:inverseOf rdf:resource="&arkivo;#reports"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#isSceneOf -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#isSceneOf">
+        <owl:inverseOf rdf:resource="&arkivo;#takesPlaceIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#isSectionOf -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#isSectionOf">
+        <rdfs:domain rdf:resource="&arkivo;#File"/>
+        <rdfs:range rdf:resource="&arkivo;#Fonds"/>
+        <owl:inverseOf rdf:resource="&arkivo;#sectionOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#isSubjectOf -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#isSubjectOf"/>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#reports -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#reports">
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&schema;Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#repository -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#repository">
+        <rdfs:label xml:lang="en">repository</rdfs:label>
+        <rdfs:comment xml:lang="en">An institution (e.g a library, archive, museum, gallery etc.) can be a repository of collections or items</rdfs:comment>
+        <rdfs:range rdf:resource="&arkivo;#GlamThing"/>
+        <rdfs:domain rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#sectionOf -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#sectionOf"/>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#takesPlaceIn -->
+
+    <owl:ObjectProperty rdf:about="&arkivo;#takesPlaceIn">
+        <rdfs:domain rdf:resource="http://linkedevents.org/ontology/Event"/>
+        <rdfs:range rdf:resource="&schema;Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;creator">
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/terms/creator</rdfs:isDefinedBy>
+        <owl:sameAs rdf:datatype="&xsd;anyURI">schema:creator</owl:sameAs>
+        <rdfs:comment xml:lang="en">An entity primarily responsible for making the resource.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schema.org/birthPlace -->
+
+    <owl:ObjectProperty rdf:about="&schema;birthPlace">
+        <rdfs:label xml:lang="en">birth place</rdfs:label>
+        <rdfs:label xml:lang="pl">miejsce urodzenia</rdfs:label>
+        <owl:sameAs rdf:datatype="&xsd;anyURI">http://dbpedia.org/ontology/birthPlace</owl:sameAs>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">schema:birthPlace</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The place where the person was born.</rdfs:comment>
+        <rdfs:range rdf:resource="&schema;Place"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schema.org/deathPlace -->
+
+    <owl:ObjectProperty rdf:about="&schema;deathPlace">
+        <rdfs:label xml:lang="en">death place</rdfs:label>
+        <owl:sameAs rdf:datatype="&xsd;anyURI">dbo:deathPlace</owl:sameAs>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">schema:deathPlace</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The place where the person died.</rdfs:comment>
+        <rdfs:range rdf:resource="&schema;Place"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schema.org/hasPart -->
+
+    <owl:ObjectProperty rdf:about="&schema;hasPart">
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <owl:inverseOf rdf:resource="&schema;isPartOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schema.org/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="&schema;isPartOf">
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schema.org/mentions -->
+
+    <owl:ObjectProperty rdf:about="&schema;mentions">
+        <rdfs:label>mentions</rdfs:label>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#CreativeThing"/>
+        <rdfs:range rdf:resource="&arkivo;#NamedThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedevents.org/ontology/atTime -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedevents.org/ontology/atTime">
+        <rdfs:label xml:lang="en">atTime</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://linkedevents.org/ontology/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en"> An instant or interval of time that is when an event happened.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://linkedevents.org/ontology/Event"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#dateTime -->
+
+    <owl:DatatypeProperty rdf:about="&arkivo;#dateTime">
+        <rdfs:label xml:lang="en">dateTime</rdfs:label>
+        <rdfs:domain rdf:resource="&arkivo;#Date"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#deathDate -->
+
+    <owl:DatatypeProperty rdf:about="&arkivo;#deathDate">
+        <rdfs:label>death date</rdfs:label>
+        <rdfs:label xml:lang="en">Date of death.</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:range rdf:resource="&xsd;date"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#format -->
+
+    <owl:DatatypeProperty rdf:about="&arkivo;#format">
+        <rdfs:label>format</rdfs:label>
+        <rdfs:comment>The physical description of the resource</rdfs:comment>
+        <rdfs:isDefinedBy>http://purl.org/dc/terms/format</rdfs:isDefinedBy>
+        <rdfs:domain rdf:resource="&arkivo;#CreativeThing"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#numPages -->
+
+    <owl:DatatypeProperty rdf:about="&arkivo;#numPages">
+        <rdfs:label xml:lang="en">num pages</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The number of pages contained in a document.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#resource -->
+
+    <owl:DatatypeProperty rdf:about="&arkivo;#resource">
+        <rdfs:label xml:lang="en">resource</rdfs:label>
+        <rdfs:comment xml:lang="en">Link to external or internal resource.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:DatatypeProperty rdf:about="&dc;description">
+        <rdfs:label xml:lang="en">description</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/elements/1.1/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/extent -->
+
+    <owl:DatatypeProperty rdf:about="&dc;extent">
+        <rdfs:label>extent</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/terms/extent</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The size or duration of the resource</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#CreativeThing"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:DatatypeProperty rdf:about="&dc;title">
+        <rdfs:label xml:lang="en">title</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/elements/1.1/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A name given to the resource.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/alternative -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;alternative">
+        <rdfs:label xml:lang="en">alternative title</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/terms/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">An alternative name or title of the resource. Often used for a name in a different language</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;created">
+        <rdfs:label xml:lang="en">date</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/terms/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Date of creation of the resource.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+        <rdfs:range rdf:resource="&xsd;gYear"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/date -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;date">
+        <rdfs:label xml:lang="en">date</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/terms/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/argued -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/argued">
+        <rdfs:label xml:lang="en">date argued</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The date on which a legal case is argued before a court.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/LegalDocument"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/doi -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/doi">
+        <rdfs:label>doi</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en"> The Digital Object Identifier.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/isbn -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/isbn">
+        <rdfs:label>isbn</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This property identifies the International Standard Book Number.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/issn -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/issn">
+        <rdfs:label>issn</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This data property allows to insert the ISSN, which is an 8-digit code used to identify newspapers, journals, magazines and periodicals.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/issue -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/issue">
+        <rdfs:label>issue</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This property indicates the number of a single copy of a periodical.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/pageEnd -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/pageEnd">
+        <rdfs:label xml:lang="en">page end</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Last number page of a document.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/pageStart -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/pageStart">
+        <rdfs:label xml:lang="en">page start</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">First number page of a document.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/volume -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/volume">
+        <rdfs:label>volume</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The number of a series of issues of a periodical, usually covering one calendar year.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/vocab/bio/0.1/biography -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/vocab/bio/0.1/biography">
+        <rdfs:label xml:lang="en">biography</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/vocab/bio/0.1/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">An extended description or account of someone&apos;s life.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/abstract -->
+
+    <owl:DatatypeProperty rdf:about="&schema;abstract">
+        <rdfs:label xml:lang="en">abstract</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A summary of the resource.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/birthDate -->
+
+    <owl:DatatypeProperty rdf:about="&schema;birthDate">
+        <rdfs:label xml:lang="en">Date of birth.</rdfs:label>
+        <rdfs:label>birth date</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:range rdf:resource="&xsd;date"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/endDate -->
+
+    <owl:DatatypeProperty rdf:about="&schema;endDate">
+        <rdfs:label xml:lang="en">end date</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This property indicates the end date of an event. </rdfs:comment>
+        <rdfs:domain rdf:resource="http://linkedevents.org/ontology/Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://linkedevents.org/ontology/atTime"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/inLanguage -->
+
+    <owl:DatatypeProperty rdf:about="&schema;inLanguage">
+        <rdfs:label xml:lang="en">in language</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This property specifies the language of the document.</rdfs:comment>
+        <rdfs:domain rdf:resource="&arkivo;#Item"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/keywords -->
+
+    <owl:DatatypeProperty rdf:about="&schema;keywords">
+        <rdfs:label xml:lang="en">keywords</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Keywords or tags used to describe this content. </rdfs:comment>
+        <rdfs:domain rdf:resource="&dc;Subject"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/latitude -->
+
+    <owl:DatatypeProperty rdf:about="&schema;latitude">
+        <rdfs:label xml:lang="en">latitude</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The latitude of a location.</rdfs:comment>
+        <rdfs:domain rdf:resource="&schema;Place"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/longitude -->
+
+    <owl:DatatypeProperty rdf:about="&schema;longitude">
+        <rdfs:label xml:lang="en">longitude</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The longitude of a location.</rdfs:comment>
+        <rdfs:domain rdf:resource="&schema;Place"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/name -->
+
+    <owl:DatatypeProperty rdf:about="&schema;name">
+        <rdfs:label xml:lang="en">name</rdfs:label>
+        <rdfs:comment xml:lang="en">A name of any thing (example: Institution, collection, person, historica event, historical period etc.) It is more generic and often more formal than title.</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/publisher -->
+
+    <owl:DatatypeProperty rdf:about="&schema;publisher">
+        <rdfs:label xml:lang="en">publisher</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The publisher of the creative work.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/startdate -->
+
+    <owl:DatatypeProperty rdf:about="&schema;startdate">
+        <rdfs:label xml:lang="en">start date</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This property indicates the starting date of an event.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://linkedevents.org/ontology/Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://linkedevents.org/ontology/atTime"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.geonames.org/ontology#geonamesID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.geonames.org/ontology#geonamesID">
+        <rdfs:label>geonames Identifier</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/ontology</rdfs:isDefinedBy>
+        <rdfs:domain rdf:resource="&schema;Place"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/familyName -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;familyName">
+        <rdfs:label xml:lang="en">family name</rdfs:label>
+        <rdfs:comment xml:lang="en">The family name of some person. </rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">http://xmlns.com/foaf/0.1/</rdfs:isDefinedBy>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/firstName -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;firstName">
+        <rdfs:label xml:lang="en">firstname</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://xmlns.com/foaf/0.1/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The first name of a person. </rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedevents.org/ontology/Event -->
+
+    <owl:Class rdf:about="http://linkedevents.org/ontology/Event">
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://linkedevents.org/ontology/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">An event is an occurrence that brings about a change in the state of affairs for one or more people and/or other agents. Events are assumed to occur over a period of time and may not have precise start and end points.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#CreativeThing -->
+
+    <owl:Class rdf:about="&arkivo;#CreativeThing">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&arkivo;#HistoricalEvent"/>
+                    <rdf:Description rdf:about="&arkivo;#Item"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/bibo/Collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment>Thing created  or named by people</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Date -->
+
+    <owl:Class rdf:about="&arkivo;#Date">
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This class contains the dates mentioned in an item.</rdfs:comment>
+        <rdfs:comment xml:lang="pl">Ta klasa zawiera daty wspomniane w obiekcie (item)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Decree -->
+
+    <owl:Class rdf:about="&arkivo;#Decree">
+        <rdfs:label xml:lang="en">Decree</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">An authoritative order having the force of law.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#File -->
+
+    <owl:Class rdf:about="&arkivo;#File">
+        <rdfs:label>File</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment>Archival File. An organized unit of items grouped together either for current use by the creator or in the process of archival arrangement, because they relate to the same subject, activity, or transaction.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Fonds -->
+
+    <owl:Class rdf:about="&arkivo;#Fonds">
+        <rdfs:label>Fonds</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:isDefinedBy>ISAD(G)</rdfs:isDefinedBy>
+        <rdfs:comment>Archival Fonds. The whole of the records, regardless of form or medium, organically created and/or accumulated and used by a particular person, family, or corporate body in the course of that creator&apos;s activities and functions.</rdfs:comment>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedTarget>ISAD(G)</owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">The General International Standard Archival Description - ISAD(G) defines the elements that should be included in an archival finding aid.  Conversion to RDS is a work in progress https://www.w3.org/2005/Incubator/lld/XGR-lld-vocabdataset-20111025/#General_International_Standard_Archival_Description_.28ISAD.28G.29.29</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&arkivo;#Fonds"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;isDefinedBy"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#GlamThing -->
+
+    <owl:Class rdf:about="&arkivo;#GlamThing">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&arkivo;#Item"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/bibo/Collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Any entity that is or can be stored in an Gallery, Library, Archive or Musem (GLAM institution)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Guidelines -->
+
+    <owl:Class rdf:about="&arkivo;#Guidelines">
+        <rdfs:label xml:lang="en">Guidelines</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A set of principles put forward to set standards or determine a course of action.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#HistoricalEvent -->
+
+    <owl:Class rdf:about="&arkivo;#HistoricalEvent">
+        <rdfs:label xml:lang="en">HistoricalEvent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedevents.org/ontology/Event"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The historical events mentioned in a bibliographic resource. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#HistoricalPeriod -->
+
+    <owl:Class rdf:about="&arkivo;#HistoricalPeriod">
+        <rdfs:label xml:lang="en">Historical Period</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;anyURI">An delimited era of history which have some distinctive features.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Instruction -->
+
+    <owl:Class rdf:about="&arkivo;#Instruction">
+        <rdfs:label xml:lang="en">Instruction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Detailed directions about how to do something.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Item -->
+
+    <owl:Class rdf:about="&arkivo;#Item">
+        <rdfs:label xml:lang="en">Item</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dcterms;date"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">An item is the smallest intellectually indivisible archival unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#List -->
+
+    <owl:Class rdf:about="&arkivo;#List">
+        <rdfs:label xml:lang="en">List</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A series of names, words, or other items written or printed one after the other.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Map -->
+
+    <owl:Class rdf:about="&arkivo;#Map">
+        <rdfs:label xml:lang="en">Map</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&arkivo;#Item"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A representation of a location.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Memorandum -->
+
+    <owl:Class rdf:about="&arkivo;#Memorandum">
+        <rdfs:label xml:lang="en">Memorandum</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A brief, unsigned diplomatic communication.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#NamedThing -->
+
+    <owl:Class rdf:about="&arkivo;#NamedThing">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&arkivo;#Date"/>
+                    <rdf:Description rdf:about="&schema;Place"/>
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment>Objects that can be listed or mentioned in Creative Thing</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Plan -->
+
+    <owl:Class rdf:about="&arkivo;#Plan">
+        <rdfs:label xml:lang="en">Plan</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&arkivo;#Item"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A document describing the systematic arrangement of some elements.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Poster -->
+
+    <owl:Class rdf:about="&arkivo;#Poster">
+        <rdfs:label xml:lang="en">Poster</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A printed placard, often illustrated, that is posted to advertise something.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Proclamation -->
+
+    <owl:Class rdf:about="&arkivo;#Proclamation">
+        <rdfs:label xml:lang="en">Proclamation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A document published that sets forth the basis of authority and scope of activities of a commander in a given area and which defines the obligations, liabilities, duties, and rights of the population affected.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Report -->
+
+    <owl:Class rdf:about="&arkivo;#Report">
+        <rdfs:label xml:lang="en">Report</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A detailed document of an event or situation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Resolution -->
+
+    <owl:Class rdf:about="&arkivo;#Resolution">
+        <rdfs:label xml:lang="en">Resolution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A formal expression of opinion or intention made by a formal organization or other group.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Series -->
+
+    <owl:Class rdf:about="&arkivo;#Series">
+        <rdfs:label>Series</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:comment xml:lang="en">Documents arranged in accordance with a filing system or maintained as a unit because they result from the same accumulation or filing process, or the same activity; have a particular form; or because of some other relationship arising out of their creation, receipt, or use. A series is also known as a records series.</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">ISAD(G)</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Speech -->
+
+    <owl:Class rdf:about="&arkivo;#Speech">
+        <rdfs:label xml:lang="en">Speech</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A document that reports a speech made on a formal occasion.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/dcmitype/Image -->
+
+    <owl:Class rdf:about="http://purl.org/dc/dcmitype/Image">
+        <rdfs:label xml:lang="en">Image</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&arkivo;#Item"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A visual representation other than text. </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/dcmitype/Image</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/Subject -->
+
+    <owl:Class rdf:about="&dc;Subject">
+        <rdfs:label xml:lang="en">Subject</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/dc/terms/subject</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The topic described in a bibliographic resource. Typically, the subject will be represented using keywords or key phrases.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Article -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Article">
+        <rdfs:label xml:lang="en">Article</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A written composition in prose on a specific topic, forming an independent part of a book or other publication, as a journal or magazine.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/AudioDocument -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/AudioDocument">
+        <rdfs:label xml:lang="en">Audio Document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&arkivo;#Item"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">An audio document; aka record.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/AudioVisualDocument -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/AudioVisualDocument">
+        <rdfs:label xml:lang="en">Audio Visual Document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&arkivo;#Item"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">An audio-visual document; film, video, and so forth.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Book -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Book">
+        <rdfs:label xml:lang="en">Book</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&arkivo;#Item"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A written or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/BookChapter -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/BookChapter">
+        <rdfs:label xml:lang="en">Book Chapter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&arkivo;#Item"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A chapter of a book.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Collection -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Collection">
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+        <owl:disjointWith rdf:resource="&foaf;Agent"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A collection of Documents or Collections.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Document -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Document">
+        <rdfs:label xml:lang="en">Document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&arkivo;#Item"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/arkivo/ontology</rdfs:isDefinedBy>
+        <rdfs:comment>A document is a bounded physical representation of body of information designed with the capacity (and usually intent) to communicate. A document may manifest symbolic, diagrammatic or sensory-representational information.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Email -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Email">
+        <rdfs:label xml:lang="en">Email</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/PersonalCommunicationDocument"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A message or messages sent or received by such a system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Journal -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Journal">
+        <rdfs:label xml:lang="en">Journal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A periodical of scholarly journal Articles.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/LegalDocument -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/LegalDocument">
+        <rdfs:label xml:lang="en">Legal Document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A legal document; for example, a court decision, a brief, and so forth.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Letter -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Letter">
+        <rdfs:label xml:lang="en">Letter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/PersonalCommunicationDocument"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A written or printed communication addressed to a person or organization and usually transmitted by mail.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Magazine -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Magazine">
+        <rdfs:label xml:lang="en">Magazine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Collection"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A periodical of magazine Articles. A magazine is a publication that is issued periodically.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/PersonalCommunicationDocument -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/PersonalCommunicationDocument">
+        <rdfs:label xml:lang="en">Personal Communication Document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Email"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A personal communication manifested in some document.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Telegram -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Telegram">
+        <rdfs:label xml:lang="en">Telegram</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/PersonalCommunicationDocument"/>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A message or communication sent by telegraph.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Place -->
+
+    <owl:Class rdf:about="&schema;Place">
+        <rdfs:label>Place</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://schema.org/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Any place mentioned in an item or related to an event.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent">
+        <rdfs:label xml:lang="en">Agent</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://xmlns.com/foaf/0.1/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Used to describe any agent related to bibliographic items or to specific events. Such agents can be persons, organizations or institution of any kind.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="&foaf;Organization">
+        <rdfs:label xml:lang="en">Organization</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&arkivo;#repository"/>
+                <owl:onClass rdf:resource="&arkivo;#GlamThing"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://xmlns.com/foaf/0.1/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This class is used to describe an organization related to bibliographic items or to events.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="&foaf;Person">
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&schema;birthPlace"/>
+                <owl:onClass rdf:resource="&schema;Place"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://xmlns.com/foaf/0.1/</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The Person class represents people related to a bibliographic item or to a specific event.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Fond1 -->
+
+    <owl:NamedIndividual rdf:about="&arkivo;#Fond1">
+        <rdf:type rdf:resource="&arkivo;#Fonds"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Organization2 -->
+
+    <owl:NamedIndividual rdf:about="&arkivo;#Organization2">
+        <rdf:type rdf:resource="&foaf;Organization"/>
+        <repository rdf:resource="&arkivo;#Fond1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Person1 -->
+
+    <owl:NamedIndividual rdf:about="&arkivo;#Person1">
+        <rdf:type rdf:resource="&foaf;Person"/>
+        <dc:description rdf:datatype="&xsd;language">yes</dc:description>
+        <schema:birthPlace rdf:resource="&arkivo;#Place2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Pilsduski -->
+
+    <owl:NamedIndividual rdf:about="&arkivo;#Pilsduski">
+        <rdf:type rdf:resource="&foaf;Organization"/>
+        <repository rdf:resource="&arkivo;#Fond1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Place1 -->
+
+    <owl:NamedIndividual rdf:about="&arkivo;#Place1">
+        <rdf:type rdf:resource="&schema;Place"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#Place2 -->
+
+    <owl:NamedIndividual rdf:about="&arkivo;#Place2">
+        <rdf:type rdf:resource="&schema;Place"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/arkivo/ontology#item -->
+
+    <owl:NamedIndividual rdf:about="&arkivo;#item">
+        <rdf:type rdf:resource="&arkivo;#Item"/>
+        <dc:description rdf:datatype="&xsd;language">yes</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&arkivo;#Place1"/>
+            <rdf:Description rdf:about="&arkivo;#Place2"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&arkivo;#Decree"/>
+            <rdf:Description rdf:about="&arkivo;#Guidelines"/>
+            <rdf:Description rdf:about="&arkivo;#Instruction"/>
+            <rdf:Description rdf:about="&arkivo;#List"/>
+            <rdf:Description rdf:about="&arkivo;#Map"/>
+            <rdf:Description rdf:about="&arkivo;#Report"/>
+            <rdf:Description rdf:about="&arkivo;#Resolution"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/bibo/Article"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/bibo/Book"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/bibo/LegalDocument"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/bibo/PersonalCommunicationDocument"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&arkivo;#Organization2"/>
+            <rdf:Description rdf:about="&arkivo;#Pilsduski"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
