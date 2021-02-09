@@ -7,7 +7,7 @@
 * **Contributors:** Pilsudski Institute of America and University of Sassari.
 * **Issued:** 2020-07-09
 * **Document Status:** 0.3
-* **License:** This work is licensed under a [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/). This copyright applies to the ARKIVO Ontology and accompanying documentation.
+* **License:** This work is licensed under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/). This copyright applies to the ARKIVO Ontology and accompanying documentation.
 
 **arkivo** ontology is designed to accomodate archival description, including collection hierarchy (for archives typically as Fonds, Series, Files, Items etc.) as well as metadata of the digitized and born-digital items. It includes historical events, people, places, organizations and other entities in archival items, as well as relationships between them. arkivo ontology is intended for presentation of archival objects and relationships in Linked Open Data environment. Regarding underlying technology, arkivo uses W3C's [OWL 2](http://www.w3.org/TR/owl2-overview/) language.
 
