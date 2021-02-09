@@ -2,7 +2,7 @@
 
 ## Overview
 
-* **This Version:** [http://purl.org/arkivo/ontology](http://purl.org/arkivo/ontology)
+* **This Version:** Arkivo 0.3
 * **Authors:** [Laura Pandolfo](mailto:lpandolfo@uniss.it), [Luca Pulina](mailto:lpulina@uniss.it) and [Marek Zielinski](mailto:MZielinski@pilsudski.org)
 * **Contributors:** Pilsudski Institute of America and University of Sassari.
 * **Issued:** 2020-07-09
