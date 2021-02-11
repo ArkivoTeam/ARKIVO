@@ -15,7 +15,7 @@
 
 ## ARKIVO Classes and Properties
 
-[Latest version] (https://github.com/ArkivoTeam/ARKIVO/blob/master/arkivo_0.2.owl) of the ontology.
+[Latest version](https://github.com/ArkivoTeam/ARKIVO/blob/master/arkivo_0.2.owl) of the ontology.
 See [documentation.pdf](https://github.com/ArkivoTeam/ARKIVO/blob/master/documentation1.2.pdf) file.
 
 ## Core Ontologies 
@@ -25,4 +25,4 @@ See [documentation.pdf](https://github.com/ArkivoTeam/ARKIVO/blob/master/documen
 ## ARKIVO application ##
 
 **arkivo** ontology has been used to model the archival collections of the **Józef Piłsudski Institute of America**.
-The [dataset] (https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo%CC%81zef_Pi%C5%82sudski_data.rdf.zip) is available under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) for you to download in .zip* format. 
+The [dataset](https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo%CC%81zef_Pi%C5%82sudski_data.rdf.zip) is available under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) for you to download in .zip* format. 
