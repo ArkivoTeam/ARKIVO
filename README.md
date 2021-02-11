@@ -22,7 +22,7 @@ See [documentation.pdf](https://github.com/ArkivoTeam/ARKIVO/blob/master/documen
 
 **arkivo** ontology has been integrated with several core ontologies and vocabularies, such as [Dublin Core metadata elements (DCMI)](http://dublincore.org/documents/dcmi-terms/), [Friend Of A Friend Vocaboluary (FOAF)](http://xmlns.com/foaf/spec/), [schema.org](http://schema.org), [the Bibliographic Ontology (BIBO)](http://bibliontology.com), [GeoNames Ontology](http://www.geonames.org/ontology/documentation.html) and [LODE](http://linkedevents.org/ontology/). 
 
-## Application
+## Application & Dataset
 
 **arkivo** ontology has been used to model the archival collections of the **Józef Piłsudski Institute of America**.
-The [dataset](https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo%CC%81zef_Pi%C5%82sudski_data.rdf.zip) is available under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) for you to download in .zip* format. 
+The [RDF dataset](https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo%CC%81zef_Pi%C5%82sudski_data.rdf.zip) is available under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) for you to download in .zip* format. 
