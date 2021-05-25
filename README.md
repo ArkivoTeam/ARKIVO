@@ -26,3 +26,48 @@ See [documentation.pdf](https://github.com/ArkivoTeam/ARKIVO/blob/master/documen
 
 **arkivo** ontology has been used to model the archival collections of the **Józef Piłsudski Institute of America**.
 The [RDF dataset](https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo%CC%81zef_Pi%C5%82sudski_data.rdf.zip) is available under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) for you to download in .zip* format. 
+
+## How to cite
+Please consider citing our papers if you find the ontology and dataset useful:
+```markdown
+@inproceedings{arkivo19,
+  author    = {Laura Pandolfo and
+               Luca Pulina and
+               Marek Zielinski},
+  editor    = {Paolo Manghi and
+               Leonardo Candela and
+               Gianmaria Silvello},
+  title     = {Exploring Semantic Archival Collections: The Case of Pi{\l}sudski
+               Institute of America},
+  booktitle = {Digital Libraries: Supporting Open Science - 15th Italian Research
+               Conference on Digital Libraries, {IRCDL} 2019, Pisa, Italy, January
+               31 - February 1, 2019, Proceedings},
+  series    = {Communications in Computer and Information Science},
+  volume    = {988},
+  pages     = {107--121},
+  publisher = {Springer},
+  year      = {2019},
+  url       = {https://doi.org/10.1007/978-3-030-11226-4\_9},
+  doi       = {10.1007/978-3-030-11226-4\_9}
+}
+```
+```markdown
+@inproceedings{arkivo17,
+  author    = {Laura Pandolfo and
+               Luca Pulina and
+               Marek Zielinski},
+  editor    = {Alessandro Adamou and
+               Enrico Daga and
+               Leif Isaksen},
+  title     = {Towards an Ontology for Describing Archival Resources},
+  booktitle = {Proceedings of the Second Workshop on Humanities in the Semantic Web
+               (WHiSe {II)} co-located with 16th International Semantic Web Conference
+               {(ISWC} 2017), Vienna, Austria, October 22, 2017},
+  series    = {{CEUR} Workshop Proceedings},
+  volume    = {2014},
+  pages     = {111--116},
+  publisher = {CEUR-WS.org},
+  year      = {2017},
+  url       = {http://ceur-ws.org/Vol-2014/paper-12.pdf}
+}
+```
