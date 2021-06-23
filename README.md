@@ -16,20 +16,21 @@ One of the first steps in the development of the semantic layer for the Pilsudsk
 
 ## Classes and Properties
 
-[Latest version](https://github.com/ArkivoTeam/ARKIVO/blob/master/arkivo_0.2.owl) of the ontology.
-See [documentation.pdf](https://github.com/ArkivoTeam/ARKIVO/blob/master/documentation1.2.pdf) file.
+See the [latest version](https://github.com/ArkivoTeam/ARKIVO/blob/master/arkivo_0.2.owl) of the ontology.
+Click here to read the [documentation](https://github.com/ArkivoTeam/ARKIVO/blob/master/documentation1.2.pdf).
 
 ## Core Ontologies 
 
 **arkivo** ontology has been integrated with several core ontologies and vocabularies, such as [Dublin Core metadata elements (DCMI)](http://dublincore.org/documents/dcmi-terms/), [Friend Of A Friend Vocaboluary (FOAF)](http://xmlns.com/foaf/spec/), [schema.org](http://schema.org), [the Bibliographic Ontology (BIBO)](http://bibliontology.com), [GeoNames Ontology](http://www.geonames.org/ontology/documentation.html) and [LODE](http://linkedevents.org/ontology/). 
 
-# Application & Dataset
+## Application & Dataset
 
-**arkivo** ontology has been used to model the archival collections of the **Józef Piłsudski Institute of America**.
-The [RDF dataset](https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo%CC%81zef_Pi%C5%82sudski_data.rdf.zip) is available under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) for you to download in .zip* format. 
+**arkivo** ontology has been used to model the historical archival collections of the **Józef Piłsudski Institute of America**.
+We provide the [RDF dataset](https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo%CC%81zef_Pi%C5%82sudski_data.rdf.zip) which is the result of the efforts made within the **arkivo** project. The [RDF dataset](https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo%CC%81zef_Pi%C5%82sudski_data.rdf.zip) counts about 300 thousand triples and it is available under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) for you to download in .zip* format. 
 
-## How to cite our works
-Please consider citing our papers if you find the ontology and dataset useful:
+**NOTE:** If you are reusing any of the shared data, please honor the citation requests expressed below. 
+
+## How to cite our works:
 ```markdown
 @inproceedings{arkivo19,
   author    = {Laura Pandolfo and
