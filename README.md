@@ -1,6 +1,9 @@
-# ARKIVO Ontology
+# The ARKIVO Project
 
 ## Overview
+The **arkivo** project stems from the collaboration between the Jozef Pilsudski Institute of America and the University of Sassari. The main goal of this project is to develop the semantic layer for the Pilsudski Institute digital archive. 
+
+## ARKIVO ontology
 
 * **This Version:** Arkivo 0.3
 * **Authors:** [Laura Pandolfo](mailto:lpandolfo@uniss.it), [Luca Pulina](mailto:lpulina@uniss.it) and [Marek Zielinski](mailto:MZielinski@pilsudski.org)
@@ -9,9 +12,7 @@
 * **Document Status:** 0.3
 * **License:** This work is licensed under a [Creative Commons CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/). This copyright applies to the ARKIVO Ontology and accompanying documentation.
 
-## What is ARKIVO ontology?
-
-**arkivo** ontology is designed to accomodate archival description, including collection hierarchy (for archives typically as Fonds, Series, Files, Items etc.) as well as metadata of the digitized and born-digital items. It provides the way to represent historical events, people, places, organizations and other entities in archival items, as well as relationships between them. arkivo ontology is intended for presentation of archival objects and relationships in Linked Open Data environment. Regarding underlying technology, arkivo uses [OWL 2 DL](http://www.w3.org/TR/owl2-overview/) profile.
+One of the first steps in the development of the semantic layer for the Pilsudski Institute digital archive was the design of **arkivo** ontology, which accomodates archival description, including collection hierarchy (for archives typically as Fonds, Series, Files, Items etc.) as well as metadata of the digitized and born-digital items. It provides the way to represent historical events, people, places, organizations and other entities in archival items, as well as relationships between them. arkivo ontology is intended for presentation of archival objects and relationships in Linked Open Data environment. Regarding underlying technology, arkivo uses [OWL 2 DL](http://www.w3.org/TR/owl2-overview/) profile.
 
 ## Classes and Properties
 
