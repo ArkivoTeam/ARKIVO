@@ -33,14 +33,17 @@ We provide the [RDF dataset](https://github.com/ArkivoTeam/ARKIVO/blob/master/Jo
 ## How to cite our works:
 ```markdown
 @article{pandolfo2021building,
-  title={Building the Semantic Layer of the J{\'o}zef Pi{\l}sudski Digital Archive With an Ontology-Based Approach},
-  author={Pandolfo, Laura and Pulina, Luca},
-  journal={International Journal on Semantic Web and Information Systems (IJSWIS)},
-  volume={17},
-  number={4},
-  pages={1--21},
-  year={2021},
-  publisher={IGI Global}
+  author    = {Laura Pandolfo
+               and Luca Pulina},
+  title     = {Building the Semantic Layer of the J{\'o}zef Pi{\l}sudski Digital
+               Archive With an Ontology-Based Approach},
+  journal   = {International Journal on Semantic Web and Information Systems (IJSWIS)},
+  volume    = {17},
+  number    = {4},
+  pages     = {1--21},
+  year      = {2021},
+  publisher = {IGI Global}
+  doi       = {10.4018/IJSWIS.2021100101}
 }
 ```
 ```markdown
