@@ -16,7 +16,7 @@ One of the first steps in the development of the semantic layer for the Pilsudsk
 
 ## Classes and Properties
 
-See the [latest version](https://github.com/ArkivoTeam/ARKIVO/blob/master/arkivo_0.2.owl) of the ontology.
+See the [latest version](https://github.com/ArkivoTeam/ARKIVO/blob/master/arkivo_0.3.owl) of the ontology.
 Click here to read the [documentation](https://github.com/ArkivoTeam/ARKIVO/blob/master/documentation1.2.pdf).
 
 ## Core Ontologies 
